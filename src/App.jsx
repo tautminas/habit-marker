@@ -27,6 +27,13 @@ function App() {
     setDisplayedButtons(displayedButtons === 21 ? 100 : 21);
   };
 
+  const clearAllButtons = () => {
+    setButtonStates(
+      Array.from({ length: totalButtons }, () => initialButtonState)
+    );
+    setDisplayedButtons(21); // Reset the displayed buttons to 21
+  };
+
   useEffect(() => {
     localStorage.setItem("buttonStates", JSON.stringify(buttonStates));
   }, [buttonStates]);
@@ -57,9 +64,12 @@ function App() {
           </button>
         ))}
       </div>
-      <button onClick={handleExpandCollapse}>
-        {displayedButtons === 21 ? "Expand" : "Collapse"}
-      </button>
+      <div>
+        <button onClick={handleExpandCollapse}>
+          {displayedButtons === 21 ? "Expand" : "Collapse"}
+        </button>
+        <button onClick={clearAllButtons}>Clear All</button>
+      </div>
     </div>
   );
 }
