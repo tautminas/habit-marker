@@ -16,6 +16,7 @@ function App() {
   const [buttonStates, setButtonStates] = useState(storedButtonStates);
   const [displayedButtons, setDisplayedButtons] = useState(21);
   const [loaded, setLoaded] = useState(false);
+  const [toggledPercentage, setToggledPercentage] = useState(0);
 
   const toggleButton = (index) => {
     const newStates = [...buttonStates];
@@ -36,7 +37,12 @@ function App() {
 
   useEffect(() => {
     localStorage.setItem("buttonStates", JSON.stringify(buttonStates));
-  }, [buttonStates]);
+    const toggledButtons = buttonStates
+      .slice(0, displayedButtons)
+      .filter((state) => state === 1).length;
+    const percentage = (toggledButtons / displayedButtons) * 100 || 0;
+    setToggledPercentage(percentage.toFixed(2));
+  }, [buttonStates, displayedButtons]);
 
   useEffect(() => {
     if (!loaded) {
@@ -70,6 +76,7 @@ function App() {
         </button>
         <button onClick={clearAllButtons}>Clear All</button>
       </div>
+      <p>Completion percentage: {toggledPercentage}%</p>
     </div>
   );
 }
