@@ -1,33 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./styles.css";
 
 function App() {
   const totalButtons = 21;
-  const initialColor = "#FFFFCC";
+  const initialButtonState = 0;
 
-  const initialButtonColors = Array.from(
+  const initialButtonStates = Array.from(
     { length: totalButtons },
-    () => initialColor
+    () => initialButtonState
   );
 
-  const [buttonColors, setButtonColors] = useState(initialButtonColors);
+  const storedButtonStates =
+    JSON.parse(localStorage.getItem("buttonStates")) || initialButtonStates;
 
-  const changeColor = (index) => {
-    const newColors = [...buttonColors];
-    newColors[index] =
-      newColors[index] === initialColor ? "#FFD700" : initialColor;
-    setButtonColors(newColors);
+  const [buttonStates, setButtonStates] = useState(storedButtonStates);
+
+  const toggleButton = (index) => {
+    const newStates = [...buttonStates];
+    newStates[index] = newStates[index] === 0 ? 1 : 0;
+    setButtonStates(newStates);
   };
+
+  useEffect(() => {
+    localStorage.setItem("buttonStates", JSON.stringify(buttonStates));
+  }, [buttonStates]);
 
   return (
     <div>
-      <h1>Toggle Color Buttons</h1>
-      {buttonColors.map((color, index) => (
+      <h1>Toggle Buttons</h1>
+      {buttonStates.map((state, index) => (
         <button
           key={index}
-          className="round-button"
-          style={{ backgroundColor: color }}
-          onClick={() => changeColor(index)}
+          className={`round-button ${state === 1 ? "toggled" : ""}`}
+          onClick={() => toggleButton(index)}
         >
           {index + 1}
         </button>

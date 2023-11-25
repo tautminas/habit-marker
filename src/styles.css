@@ -6,4 +6,9 @@
   border: none;
   outline: none;
   cursor: pointer;
+  background-color: #ffffcc;
+}
+
+.round-button.toggled {
+  background-color: #ffd700;
 }
