@@ -14,7 +14,8 @@ function App() {
     JSON.parse(localStorage.getItem("buttonStates")) || initialButtonStates;
 
   const [buttonStates, setButtonStates] = useState(storedButtonStates);
-  const [displayedButtons, setDisplayedButtons] = useState(21); // Initially displaying 21 buttons
+  const [displayedButtons, setDisplayedButtons] = useState(21);
+  const [loaded, setLoaded] = useState(false);
 
   const toggleButton = (index) => {
     const newStates = [...buttonStates];
@@ -29,6 +30,18 @@ function App() {
   useEffect(() => {
     localStorage.setItem("buttonStates", JSON.stringify(buttonStates));
   }, [buttonStates]);
+
+  useEffect(() => {
+    if (!loaded) {
+      const hasToggledButton = buttonStates
+        .slice(21)
+        .some((state) => state === 1);
+      if (hasToggledButton) {
+        setDisplayedButtons(100);
+      }
+      setLoaded(true);
+    }
+  }, [loaded]);
 
   return (
     <div>
