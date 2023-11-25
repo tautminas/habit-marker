@@ -35,6 +35,42 @@ function App() {
     setDisplayedButtons(21); // Reset the displayed buttons to 21
   };
 
+  const saveToJSONFile = () => {
+    const json = JSON.stringify(buttonStates);
+    const blob = new Blob([json], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "buttonStates.json";
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const loadFromFile = (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      try {
+        const content = e.target.result;
+        const parsedContent = JSON.parse(content);
+        if (
+          Array.isArray(parsedContent) &&
+          parsedContent.length === totalButtons
+        ) {
+          setButtonStates(parsedContent);
+        } else {
+          throw new Error("Invalid file content or format.");
+        }
+      } catch (error) {
+        console.error("Error while parsing file:", error);
+      }
+    };
+
+    reader.readAsText(file);
+  };
+
   useEffect(() => {
     localStorage.setItem("buttonStates", JSON.stringify(buttonStates));
     const toggledButtons = buttonStates
@@ -75,8 +111,10 @@ function App() {
           {displayedButtons === 21 ? "Expand" : "Collapse"}
         </button>
         <button onClick={clearAllButtons}>Clear All</button>
+        <button onClick={saveToJSONFile}>Save to File</button>
+        <input type="file" onChange={loadFromFile} accept=".json" />
       </div>
-      <p>Completion percentage: {toggledPercentage}%</p>
+      <p>Toggled Percentage: {toggledPercentage}%</p>
     </div>
   );
 }
