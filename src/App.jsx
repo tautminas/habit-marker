@@ -29,10 +29,15 @@ function App() {
   };
 
   const clearAllButtons = () => {
-    setButtonStates(
-      Array.from({ length: totalButtons }, () => initialButtonState)
+    const confirmed = window.confirm(
+      "Are you sure you want to clear all buttons?"
     );
-    setDisplayedButtons(21); // Reset the displayed buttons to 21
+    if (confirmed) {
+      setButtonStates(
+        Array.from({ length: totalButtons }, () => initialButtonState)
+      );
+      setDisplayedButtons(21); // Reset the displayed buttons to 21
+    }
   };
 
   const saveToJSONFile = () => {
