@@ -92,20 +92,35 @@ function App() {
   }, [loaded]);
 
   return (
-    <div>
-      <h1>Habit marker</h1>
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {buttonStates.slice(0, displayedButtons).map((state, index) => (
-          <button
-            key={index}
-            className={`round-button ${state ? "toggled" : ""}`}
-            onClick={() => toggleButton(index)}
-          >
-            {index + 1}
-          </button>
-        ))}
+    <div className="app-container">
+      <div className="header">
+        <h1>Habit marker</h1>
       </div>
-      <div>
+
+      <p>
+        Check off your daily steps towards building the habit you want to
+        acquire!
+      </p>
+
+      <div className="buttons-section">
+        <div>
+          {buttonStates.slice(0, displayedButtons).map((state, index) => (
+            <button
+              key={index}
+              className={`round-button ${state ? "toggled" : ""}`}
+              onClick={() => toggleButton(index)}
+            >
+              {index + 1}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="completion-percentage">
+        <p>Completion percentage: {toggledPercentage}%</p>
+      </div>
+
+      <div className="button-actions">
         <button onClick={handleExpandCollapse}>
           {displayedButtons === 21 ? "Expand" : "Collapse"}
         </button>
@@ -113,7 +128,6 @@ function App() {
         <button onClick={saveToJSONFile}>Save to File</button>
         <input type="file" onChange={loadFromFile} accept=".json" />
       </div>
-      <p>Completion percentage: {toggledPercentage}%</p>
     </div>
   );
 }
