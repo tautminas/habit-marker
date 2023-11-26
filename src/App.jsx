@@ -2,13 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./styles.css";
 
 function App() {
-  const totalButtons = 100; // Total buttons available
-  const initialButtonState = 0;
+  const totalButtons = 100;
 
-  const initialButtonStates = Array.from(
-    { length: totalButtons },
-    () => initialButtonState
-  );
+  const initialButtonStates = Array.from({ length: totalButtons }, () => false);
 
   const storedButtonStates =
     JSON.parse(localStorage.getItem("buttonStates")) || initialButtonStates;
@@ -20,7 +16,7 @@ function App() {
 
   const toggleButton = (index) => {
     const newStates = [...buttonStates];
-    newStates[index] = newStates[index] === 0 ? 1 : 0;
+    newStates[index] = !newStates[index];
     setButtonStates(newStates);
   };
 
@@ -33,10 +29,8 @@ function App() {
       "Are you sure you want to clear all buttons?"
     );
     if (confirmed) {
-      setButtonStates(
-        Array.from({ length: totalButtons }, () => initialButtonState)
-      );
-      setDisplayedButtons(21); // Reset the displayed buttons to 21
+      setButtonStates(Array.from({ length: totalButtons }, () => false));
+      setDisplayedButtons(21);
     }
   };
 
@@ -80,16 +74,16 @@ function App() {
     localStorage.setItem("buttonStates", JSON.stringify(buttonStates));
     const toggledButtons = buttonStates
       .slice(0, displayedButtons)
-      .filter((state) => state === 1).length;
+      .filter((state) => state === true).length;
     const percentage = (toggledButtons / displayedButtons) * 100 || 0;
-    setToggledPercentage(percentage.toFixed(2));
+    setToggledPercentage(percentage.toFixed(0));
   }, [buttonStates, displayedButtons]);
 
   useEffect(() => {
     if (!loaded) {
       const hasToggledButton = buttonStates
         .slice(21)
-        .some((state) => state === 1);
+        .some((state) => state === true);
       if (hasToggledButton) {
         setDisplayedButtons(100);
       }
@@ -99,12 +93,12 @@ function App() {
 
   return (
     <div>
-      <h1>Toggle Buttons</h1>
+      <h1>Habit marker</h1>
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {buttonStates.slice(0, displayedButtons).map((state, index) => (
           <button
             key={index}
-            className={`round-button ${state === 1 ? "toggled" : ""}`}
+            className={`round-button ${state ? "toggled" : ""}`}
             onClick={() => toggleButton(index)}
           >
             {index + 1}
@@ -119,7 +113,7 @@ function App() {
         <button onClick={saveToJSONFile}>Save to File</button>
         <input type="file" onChange={loadFromFile} accept=".json" />
       </div>
-      <p>Toggled Percentage: {toggledPercentage}%</p>
+      <p>Completion percentage: {toggledPercentage}%</p>
     </div>
   );
 }
