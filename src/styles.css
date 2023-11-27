@@ -1,20 +1,19 @@
 .expand-action,
 .file-actions {
-  margin-bottom: 20px; /* Add margin between the sections */
+  margin-bottom: 20px;
 }
 
-/* Style adjustments for buttons */
 .file-actions button {
-  margin-right: 10px; /* Add margin between buttons */
+  margin-right: 10px;
 }
 
 .completion-percentage {
   display: flex;
-  align-items: center; /* Align items vertically */
+  align-items: center;
 }
 
 .completion-percentage p {
-  margin-right: 10px; /* Add margin for spacing between elements */
+  margin-right: 10px;
 }
 
 .app-container {
@@ -41,9 +40,38 @@
   border: none;
   outline: none;
   cursor: pointer;
-  background-color: #ffffcc;
+  background-color: #eeeeee;
 }
 
 .round-button.toggled {
-  background-color: #ffd700;
+  background-color: #00adb5;
+}
+
+.expand-action button {
+  background-color: #222831;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.expand-action button:hover {
+  opacity: 0.8;
+}
+
+.completion-percentage button,
+.file-actions button {
+  background-color: #393e46;
+  color: white;
+  padding: 6px 12px;
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.completion-percentage button:hover,
+.file-actions button:hover {
+  opacity: 0.8;
 }

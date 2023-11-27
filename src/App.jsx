@@ -129,7 +129,12 @@ function App() {
 
       <div className="file-actions">
         <button onClick={saveToJSONFile}>Save to File</button>
-        <input type="file" onChange={loadFromFile} accept=".json" />
+        <input
+          type="file"
+          id="file-upload"
+          onChange={loadFromFile}
+          accept=".json"
+        />
       </div>
     </div>
   );
