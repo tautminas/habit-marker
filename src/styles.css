@@ -1,3 +1,7 @@
+body {
+  font-family: "Your Font Name", sans-serif;
+}
+
 .expand-action,
 .file-actions {
   margin-bottom: 20px;
@@ -74,4 +78,28 @@
 .completion-percentage button:hover,
 .file-actions button:hover {
   opacity: 0.8;
+}
+
+.file-button {
+  display: inline-block;
+  background-color: #393e46;
+  color: white;
+  padding: 6px 12px;
+  font-size: 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.file-button:hover {
+  opacity: 0.8;
+}
+
+.file-actions {
+  display: flex;
+  align-items: center;
+}
+
+.file-actions button {
+  margin-right: 10px;
 }

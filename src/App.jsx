@@ -129,12 +129,16 @@ function App() {
 
       <div className="file-actions">
         <button onClick={saveToJSONFile}>Save to File</button>
-        <input
-          type="file"
-          id="file-upload"
-          onChange={loadFromFile}
-          accept=".json"
-        />
+        <label htmlFor="file-upload" className="file-button">
+          Choose File
+          <input
+            type="file"
+            id="file-upload"
+            onChange={loadFromFile}
+            accept=".json"
+            style={{ display: "none" }}
+          />
+        </label>
       </div>
     </div>
   );
