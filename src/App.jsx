@@ -118,13 +118,16 @@ function App() {
 
       <div className="completion-percentage">
         <p>Completion percentage: {toggledPercentage}%</p>
+        <button onClick={clearAllButtons}>Clear</button>
       </div>
 
-      <div className="button-actions">
+      <div className="expand-action">
         <button onClick={handleExpandCollapse}>
           {displayedButtons === 21 ? "Expand" : "Collapse"}
         </button>
-        <button onClick={clearAllButtons}>Clear All</button>
+      </div>
+
+      <div className="file-actions">
         <button onClick={saveToJSONFile}>Save to File</button>
         <input type="file" onChange={loadFromFile} accept=".json" />
       </div>
