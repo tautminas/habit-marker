@@ -95,25 +95,21 @@ function App() {
     <div className="app-container">
       <div className="header">
         <h1>Habit marker</h1>
+        <p>
+          Check off your daily steps towards building the habit you want to
+          acquire!
+        </p>
       </div>
-
-      <p>
-        Check off your daily steps towards building the habit you want to
-        acquire!
-      </p>
-
       <div className="buttons-section">
-        <div>
-          {buttonStates.slice(0, displayedButtons).map((state, index) => (
-            <button
-              key={index}
-              className={`round-button ${state ? "toggled" : ""}`}
-              onClick={() => toggleButton(index)}
-            >
-              {index + 1}
-            </button>
-          ))}
-        </div>
+        {buttonStates.slice(0, displayedButtons).map((state, index) => (
+          <button
+            key={index}
+            className={`round-button ${state ? "toggled" : ""}`}
+            onClick={() => toggleButton(index)}
+          >
+            {index + 1}
+          </button>
+        ))}
       </div>
 
       <div className="completion-percentage">

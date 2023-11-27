@@ -103,3 +103,31 @@ body {
 .file-actions button {
   margin-right: 10px;
 }
+
+.buttons-section {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.header p {
+  margin: 0;
+}
+
+.expand-action {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 576px) {
+  .buttons-section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
