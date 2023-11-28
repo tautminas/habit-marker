@@ -37,14 +37,63 @@ body {
 }
 
 .round-button {
-  width: 40px;
-  height: 40px;
+  position: relative;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   margin: 5px;
   border: none;
   outline: none;
   cursor: pointer;
   background-color: #eeeeee;
+}
+
+.round-button {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: #eeeeee;
+}
+
+.round-button.toggled::before,
+.round-button.toggled::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 2px;
+  background-color: #fff;
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.round-button::before,
+.round-button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 2px;
+  background-color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.round-button.toggled::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.round-button.toggled::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 .round-button.toggled {
