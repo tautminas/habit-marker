@@ -123,18 +123,25 @@ function App() {
         </button>
       </div>
 
-      <div className="file-actions">
-        <button onClick={saveToJSONFile}>Save to File</button>
-        <label htmlFor="file-upload" className="file-button">
-          Choose File
-          <input
-            type="file"
-            id="file-upload"
-            onChange={loadFromFile}
-            accept=".json"
-            style={{ display: "none" }}
-          />
-        </label>
+      <div className="save-section">
+        <p>
+          Need to switch to a different browser or device and keep your
+          progress? Simply save it to a file and upload it in another browser or
+          device with ease.
+        </p>
+        <div className="file-actions">
+          <button onClick={saveToJSONFile}>Save to File</button>
+          <label htmlFor="file-upload" className="file-button">
+            Choose File
+            <input
+              type="file"
+              id="file-upload"
+              onChange={loadFromFile}
+              accept=".json"
+              style={{ display: "none" }}
+            />
+          </label>
+        </div>
       </div>
     </div>
   );
