@@ -3,6 +3,10 @@ body {
   background-color: #eeeeee;
 }
 
+h1 {
+  color: #00adb5;
+}
+
 .expand-action,
 .file-actions {
   margin-bottom: 20px;
@@ -47,6 +51,10 @@ body {
   outline: none;
   cursor: pointer;
   background-color: #fff;
+}
+
+.round-button:hover {
+  border: 1px solid #393e46;
 }
 
 .round-button.toggled::before,
