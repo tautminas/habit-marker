@@ -96,10 +96,13 @@ function App() {
       <div className="header">
         <h1>Habit marker</h1>
         <p>
-          Check off your daily steps towards building the habit you want to
-          acquire!
+          Dr. Maxwell Maltz suggested that it takes 21 days of repetition to
+          form a habit. This calendar enables you to track your progress by
+          marking your daily steps toward establishing the desired habit. Check
+          off your daily actions and witness your habit-building journey.
         </p>
       </div>
+
       <div className="buttons-section">
         {buttonStates.slice(0, displayedButtons).map((state, index) => (
           <button
@@ -141,6 +144,16 @@ function App() {
               style={{ display: "none" }}
             />
           </label>
+        </div>
+
+        <div className="footer">
+          <p>
+            Thank you for visiting. Please check out my{" "}
+            <a href="https://github.com/tautminas" target="_blank">
+              GitHub
+            </a>{" "}
+            profile for more projects.
+          </p>
         </div>
       </div>
     </div>

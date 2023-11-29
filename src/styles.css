@@ -166,6 +166,11 @@ body {
   margin: 0;
 }
 
+.footer {
+  display: flex;
+  padding: 20px; /* Adjust padding as needed */
+}
+
 .expand-action {
   display: flex;
   justify-content: center;
