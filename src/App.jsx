@@ -93,7 +93,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <div className="header">
+      <header className="header">
         <h1>Habit marker</h1>
         <p>
           Dr. Maxwell Maltz suggested that it takes 21 days of repetition to
@@ -101,9 +101,9 @@ function App() {
           marking your daily steps toward establishing the desired habit. Check
           off your daily actions and witness your habit-building journey.
         </p>
-      </div>
+      </header>
 
-      <div className="buttons-section">
+      <section className="buttons-section">
         {buttonStates.slice(0, displayedButtons).map((state, index) => (
           <button
             key={index}
@@ -113,14 +113,14 @@ function App() {
             {index + 1}
           </button>
         ))}
-      </div>
+      </section>
 
-      <div className="completion-percentage">
+      <section className="completion-percentage">
         <p>Completion percentage: {toggledPercentage}%</p>
         <button onClick={clearAllButtons}>Clear</button>
-      </div>
+      </section>
 
-      <div className="expand-action">
+      <section className="expand-action">
         <button onClick={handleExpandCollapse} className="tooltip">
           {displayedButtons === 21 ? "Expand" : "Collapse"}
           <span className="tooltiptext">
@@ -128,13 +128,14 @@ function App() {
             progress with a 100-day habit journey.
           </span>
         </button>
-      </div>
+      </section>
 
-      <div className="save-section">
+      <section className="save-section">
         <p>
-          Need to switch to a different browser or device and keep your
-          progress? Simply save it to a file and upload it in another browser or
-          device with ease.
+          Your marking data is stored in your browser's local storage. Need to
+          switch to a different browser or device and keep your progress? Simply
+          save it to a file and upload it in another browser or device with
+          ease.
         </p>
         <div className="file-actions">
           <button onClick={saveToJSONFile}>Save to File</button>
@@ -149,17 +150,17 @@ function App() {
             />
           </label>
         </div>
+      </section>
 
-        <div className="footer">
-          <p>
-            Thank you for visiting. Please check out my{" "}
-            <a href="https://github.com/tautminas" target="_blank">
-              GitHub
-            </a>{" "}
-            profile for more projects.
-          </p>
-        </div>
-      </div>
+      <footer className="footer">
+        <p>
+          Thank you for visiting. Please check out my{" "}
+          <a href="https://github.com/tautminas" target="_blank">
+            GitHub
+          </a>{" "}
+          profile for more projects.
+        </p>
+      </footer>
     </div>
   );
 }
