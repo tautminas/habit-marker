@@ -121,8 +121,12 @@ function App() {
       </div>
 
       <div className="expand-action">
-        <button onClick={handleExpandCollapse}>
+        <button onClick={handleExpandCollapse} className="tooltip">
           {displayedButtons === 21 ? "Expand" : "Collapse"}
+          <span className="tooltiptext">
+            Achieved the habit in 21 days? Don't pause there! Elevate your
+            progress with a 100-day habit journey.
+          </span>
         </button>
       </div>
 
