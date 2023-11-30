@@ -94,7 +94,7 @@ function App() {
   return (
     <div className="app-container">
       <header className="header">
-        <h1>Habit marker</h1>
+        <h1>Habit Marker</h1>
         <p>
           Dr. Maxwell Maltz suggested that it takes <em>21 days</em> of
           repetition to form a habit. This calendar enables you to track your
