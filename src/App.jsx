@@ -40,7 +40,7 @@ function App() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "buttonStates.json";
+    a.download = "habitMarker.json";
     a.click();
     URL.revokeObjectURL(url);
   };
