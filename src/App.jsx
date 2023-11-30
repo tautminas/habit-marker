@@ -96,10 +96,12 @@ function App() {
       <header className="header">
         <h1>Habit marker</h1>
         <p>
-          Dr. Maxwell Maltz suggested that it takes 21 days of repetition to
-          form a habit. This calendar enables you to track your progress by
-          marking your daily steps toward establishing the desired habit. Check
-          off your daily actions and witness your habit-building journey.
+          Dr. Maxwell Maltz suggested that it takes <em>21 days</em> of
+          repetition to form a habit. This calendar enables you to track your
+          progress by marking your daily steps toward establishing the desired
+          habit. Check off your daily actions and witness your habit-building
+          journey. All of your marking data will be stored in your browser's
+          local storage.
         </p>
       </header>
 
@@ -116,7 +118,9 @@ function App() {
       </section>
 
       <section className="completion-percentage">
-        <p>Completion percentage: {toggledPercentage}%</p>
+        <p>
+          Completion percentage: <strong>{toggledPercentage}</strong>%
+        </p>
         <button onClick={clearAllButtons}>Clear</button>
       </section>
 
@@ -132,10 +136,9 @@ function App() {
 
       <section className="save-section">
         <p>
-          Your marking data is stored in your browser's local storage. Need to
-          switch to a different browser or device and keep your progress? Simply
-          save it to a file and upload it in another browser or device with
-          ease.
+          Need to switch to a different browser or device and keep your
+          progress? Simply save it to a file and upload it in another browser or
+          device with ease.
         </p>
         <div className="file-actions">
           <button onClick={saveToJSONFile}>Save to File</button>
@@ -154,7 +157,7 @@ function App() {
 
       <footer className="footer">
         <p>
-          Thank you for visiting. Please check out my{" "}
+          Thank you for visiting! Please check out my{" "}
           <a href="https://github.com/tautminas" target="_blank">
             GitHub
           </a>{" "}

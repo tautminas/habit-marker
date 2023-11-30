@@ -227,3 +227,18 @@ h1 {
   visibility: visible;
   opacity: 1;
 }
+
+.footer {
+  font-size: 12px;
+  color: #333;
+}
+
+.save-section {
+  font-size: 14px;
+  color: #333;
+}
+
+em {
+  font-weight: bold;
+  color: #00adb5;
+}
