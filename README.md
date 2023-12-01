@@ -1,8 +1,21 @@
-# React + Vite
+# Habit Tracker Web Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About the application
 
-Currently, two official plugins are available:
+Dr. Maxwell Maltz suggests that forming a habit typically requires 21 days of consistent repetition. This application functions as a progress-tracking tool, aiding you in cultivating your desired habits. Your progress is stored within the browser's local storage. Additionally, there's the flexibility to transfer your data to other locations if needed. This application was built using React library.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Running the program
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Access the application on `http://localhost:5173/`
